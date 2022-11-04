@@ -1,51 +1,115 @@
+@import "config";
+@import "btnconfig";
+@import "utilities";
+$background-theme: black;
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background-color: $light-color;
-  font-family: $font-stack;
-  line-height: 1;
+    // background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1;
 }
 
 img {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
+}
+
+.my-1 {
+    width: 40em;
 }
 
 .hero {
-  // This is where the bulk of the SCSS styling needs to be done
+    @include set-bg(black);
+    // background-color: $background-theme;
+    div {
+        &.hero-content {
+            display: inline;
+            // position: absolute;
+            // left: 50%;
+            * {
+                margin-top: 2em;
+            }
+            img {
+                position: relative;
+                bottom: 30em;
+            }
+        }
+    }
 
-  // Take a look at the other files we've built already. How can they be useful here?
+    nav {
+        h1 {
+            display: inline-block;
+        }
+        ul {
+            display: inline-block;
+            li {
+                position: relative;
+                display: inline-block;
+                margin: 1em;
+                right: 10px;
+            }
+        }
+        position: relative;
+        bottom: 2em;
+    }
 
-  // Also, take time to review the features of SCSS we've already covered:
-  // 1. $variables
-  // 2. nesting (dont forget about the ampersand (&) parent selector!)
-  // 3. At-Rules
+    &.banner {
+        display: inline-block;
+    }
+    img {
+        position: relative;
+        left: 50em;
+        bottom: 15em;
+        width: 50%;
+    }
+    h1 {
+        .my-1 {
+            font-family: $font-stack;
+        }
+    }
+    a {
+        font-family: $font-stack;
+    }
+    // img {
+    //     height: auto;
+    //     width: 75%;
+    // }
 }
+
+// This is where the bulk of the SCSS styling needs to be done
+
+// Take a look at the other files we've built already. How can they be useful here?
+
+// Also, take time to review the features of SCSS we've already covered:
+// 1. $variables
+// 2. nesting (dont forget about the ampersand (&) parent selector!)
+// 3. At-Rules
 
 // This code is related to some of the aspects of SCSS we have yet to cover.
 // While you don't have to mess with it, it would be advisable to attempt to understand its functionality.
-$spaceamounts: (1,2,3,4,5);
+$spaceamounts: (1, 2, 3, 4, 5);
 
 @each $space in $spaceamounts {
-  .m-#{$space} {
-    margin: #{$space}rem;
-  }
-  .my-#{$space} {
-    margin: #{$space}rem 0;
-  }
+    .m-#{$space} {
+        margin: #{$space}rem;
+    }
+    .my-#{$space} {
+        margin: #{$space}rem 0;
+    }
 
-  .p-#{$space} {
-    padding: #{$space}rem;
-  }
-  .py-#{$space} {
-    padding: #{$space}rem 0;
-  }
+    .p-#{$space} {
+        padding: #{$space}rem;
+    }
+    .py-#{$space} {
+        padding: #{$space}rem 0;
+    }
 }
